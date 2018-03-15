@@ -1,27 +1,18 @@
 import Hapi from "hapi";
+import { routes } from "./routes";
 
 const server = Hapi.server({
   host: "localhost",
   port: 3000
 });
 
-// Takes three parameters: Method, Path, Handler
-server.route({
-  method: "GET",
-  path: "/",
-  handler: function(request, h) {
-    return "This is the homepage";
-  } // triggered when you make a request to a specific resource
+// Register Routes
+routes.forEach(route => {
+  server.route(route);
 });
 
-server.route({
-  method: "GET",
-  path: "/sentilize",
-  handler: function(request, h) {
-    return "This route will be changed to a POST route later";
-  }
-});
-
+// We need to install babel-polyfill
+// because async and await are in es7
 async function start() {
   try {
     await server.start();
@@ -30,3 +21,5 @@ async function start() {
   }
   console.log("Hapii server is running");
 }
+
+start();

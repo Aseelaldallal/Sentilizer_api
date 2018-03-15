@@ -13,7 +13,7 @@ export const routes = [
     handler: function(request, h) {
       // h has info/utilities to help manipulate response we'll send back to client
       const payload = request.payload;
-      return payload.sentence;
+      return payload;
     }
   }
 ];

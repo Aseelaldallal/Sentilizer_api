@@ -7,8 +7,7 @@ let python_shell_run = promisify(require("python-shell").run); // we're turning 
 export function sentilize(sentence) {
   return new Promise((resolve, reject) => {
     let options = {
-      scriptPath:
-        "/Users/aseelaldallal/Programming/NodeReact/sentilizer_api/src/vader.py",
+      scriptPath: "src/",
       args: ["-s", '"' + sentence + '"']
     };
     python_shell_run("vader.py", options)

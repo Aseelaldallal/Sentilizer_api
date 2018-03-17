@@ -3,7 +3,8 @@ import { routes } from "./routes";
 
 const server = Hapi.server({
   host: "localhost",
-  port: 3001
+  port: 3001,
+  routes: { cors: true }
 });
 
 // Register Routes
